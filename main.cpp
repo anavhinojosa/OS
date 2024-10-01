@@ -4,11 +4,12 @@
 #include <iostream>
 #include "booting.h"
 #include "auth_page.h"
+#include "process.h"
+
 using namespace std;
 
 int main() {
     bootSystem();
-
     int choice;
 
     do {
@@ -33,13 +34,16 @@ int main() {
 
                     switch (processChoice) {
                         case 1:
-                            //start the process
+                            startProcess();
                             break;
                         case 2:
-                            //list the process
+                            listProcesses();
                             break;
                         case 3: {
-                            //terminate the process
+                            int pid;
+                            cout << "Enter PID to terminate: ";
+                            cin >> pid;
+                            terminateProcess(pid);
                             break;
                         }
                         case 4:

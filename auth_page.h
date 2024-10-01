@@ -4,7 +4,6 @@
 
 using namespace std;
 
-
 bool signIn() {
     string username, password, storedUsername, storedPassword;
 
@@ -35,7 +34,7 @@ bool signIn() {
     }
 }
 
-//sign-up
+// sign-up
 void signUp() {
     string username, password;
 
@@ -44,15 +43,17 @@ void signUp() {
     cout << "Enter a new Password: ";
     cin >> password;
 
-    ofstream outfile("userdata.txt");
-    outfile << username << " " << password << endl;
-    outfile.close();
-    cout << "Sign-up successful!" << endl;
+    ofstream outfile("userdata.txt", ios::app); //apend to the file
+    if (outfile.is_open()) {
+        outfile << username << " " << password << endl;
+        outfile.close();
+        cout << "Sign-up successful!" << endl;
+    } else {
+        cout << "Unable to write to file. Please check permissions." << endl;
+    }
 }
 
-
-
-//authentication menu
+// authentication menu
 bool authenticate() {
     int choice;
 
