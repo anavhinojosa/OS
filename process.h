@@ -39,6 +39,7 @@ void terminateProcess(int pid) {
             processes[i].active = false;
             cout << "Process with PID " << pid << " terminated successfully." << endl;
             found = true;
+            count_process--;//forgot to add the decrement
             break;
         }
     }
