@@ -4,7 +4,7 @@ using namespace std;
 
 void delay(int seconds) {
   for (int i = 0; i < seconds * 100000000; ++i) {
-    // simulate the delay.
+    //simulate the delay.
   }
 }
 
