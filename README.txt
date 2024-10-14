@@ -1,5 +1,6 @@
+Ana Hinojosa and Fernando Casas
 # operating_systems
-Operating systems project - Ana and Fernando
+Operating systems project - 
 
 To push to github:
 git add .
