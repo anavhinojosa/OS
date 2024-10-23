@@ -21,14 +21,23 @@ struct Process {
 Process processes[max_process];
 
 void startProcess() {
-    if (count_process < max_process) {
-        processes[count_process].pid = current_pid++;
-        processes[count_process].active = true;
-        cout << "Process started with PID: " << processes[count_process].pid << endl;
-        count_process++;
-    } else {
-        cout << "Cannot start more processes. Maximum limit reached." << endl;
+    int i = 0;
+    srand(time(0));
+    int result = 5 + (rand() % 6);//between 5 to 10 - having a max of 10
+
+    cout << "Started process" << endl;
+    for (i = 0; i < result; ++i) {
+        if (count_process < max_process) {
+            processes[count_process].pid = current_pid++;
+            processes[count_process].active = true;
+            //remove the comment to see the process created.
+            //cout << "PID: " << processes[count_process].pid << endl;
+            count_process++;
+        } else {
+            cout << "Cannot start more processes. Maximum limit reached." << endl;
+        }
     }
+    cout << i << " process were created." << endl;
 }
 
 void terminateProcess(int pid) {

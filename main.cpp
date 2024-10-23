@@ -10,7 +10,10 @@ using namespace std;
 
 int main() {
     bootSystem();
-    int choice;
+    startProcess();
+
+    /*
+     * int choice;
 
     do {
         cout << "\nOS Simulator" << endl;
@@ -73,5 +76,6 @@ int main() {
                 cout << "Invalid choice, please try again." << endl;
         }
     } while (choice != 3);
+     */
     return 0;
 }
