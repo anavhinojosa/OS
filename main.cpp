@@ -8,9 +8,20 @@
 
 using namespace std;
 
+
+
 int main() {
-    bootSystem();
-    startProcess();
+    int schedulingType;
+    cout << "Enter 1 for FIFO, 2 for SJF: ";
+    cin >> schedulingType;
+
+    startProcess();  // Start processes based on scheduling type
+    runScheduler(schedulingType);  // Run the selected scheduling algorithm
+
+    return 0;
+}
+
+
 
     /*
      * int choice;
@@ -77,5 +88,3 @@ int main() {
         }
     } while (choice != 3);
      */
-    return 0;
-}
