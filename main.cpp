@@ -15,9 +15,6 @@ int main() {
     cout << "Enter 1 for FIFO, 2 for SJF: ";
     cin >> schedulingType;
 
-    startProcess();  // Start processes based on scheduling type
-    runScheduler(schedulingType);  // Run the selected scheduling algorithm
-
     return 0;
 }
 
