@@ -11,6 +11,7 @@ using namespace std;
 
 int main()
 {
+    srand(time(0));
     std::cout << std::unitbuf;
     clearConsole();
     bootSystem();
@@ -20,7 +21,20 @@ int main()
     //  std::queue<Process> waitingQueue;
 
     CPU cpu;
-    cpu.schedulePolicy = 2; // for Round Robin
+    cpu.schedulePolicy = 0; // for Round Robin
+    if(cpu.schedulePolicy == 0) {
+        cout << "FIFO" << endl;
+    }
+    else if(cpu.schedulePolicy == 1) {
+        cout << "SJF" << endl;
+    }
+    else if(cpu.schedulePolicy == 2) {
+        cout << "Round Robin" << endl;
+    }
+    else {
+        cout << "Unknown Policy" << endl;
+    }
+
     cpu.executeProcess();
 }
 

@@ -18,7 +18,7 @@ public:
     Process()
     {
         processId = -1;
-        state = 0; // es nuevo primero
+        state = 0; //new
         waitingTime = 0;
     }
 };
@@ -35,9 +35,9 @@ std::queue<Process> waitingQueue;
 Process createProcess(int id)
 {
     Process newProcess;
-    newProcess.processId = id;
+    newProcess.processId = 1000 + (rand() % 9000);
     newProcess.state = 0;
-    newProcess.numCycles = 5 + (rand() % 20);
+    newProcess.numCycles = 5 + (rand() % 10);
 
     return newProcess;
 }
@@ -72,11 +72,12 @@ void fillUpArray()
 
 void displayProcesses()
 {
+    cout << "PID\tCycles" << endl;
     for (int i = 0; i < numberProcesses; i++)
     {
         Process tempProcess = waitingQueue.front();
-
-        cout << "Process id: " << tempProcess.processId << ", cycles:: " << tempProcess.numCycles << endl;
+        cout << tempProcess.processId << "\t" << tempProcess.numCycles << endl;
+        //cout << "PID" << tempProcess.processId << ", cycles:: " << tempProcess.numCycles << endl;
         readyQueue.push(tempProcess);
         waitingQueue.pop();
     }
