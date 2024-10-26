@@ -49,10 +49,11 @@ public:
             cout << "\nContext Switch to Process: " << currentProcess.processId << endl;
 
             while(currentProcess.numCycles > 0) {
+                delay(1);
                 totalCycles++;//incremenet the total cycles
                 currentProcess.numCycles--;//decrement the cycles left for the process
                 //display the remaining cycles
-                cout << "Process " << currentProcess.processId << " , cycles left: " << currentProcess.numCycles << endl;
+                cout << "Process " << currentProcess.processId << " ,cycles left: " << currentProcess.numCycles << endl;
             }
             //show that a certain process has been terminated
             cout << "Process " << currentProcess.processId << " terminated" << endl;
@@ -86,7 +87,7 @@ public:
                     delay(1);
 
                     totalCycles++;
-                    cout << "Process " << currentProcess.processId << ", cycles left: " << currentProcess.numCycles << endl;
+                    cout << "Process " << currentProcess.processId << ",cycles left: " << currentProcess.numCycles << endl;
                     currentProcess.numCycles--;
                 }
                 else

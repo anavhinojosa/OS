@@ -36,6 +36,21 @@ int main()
     }
 
     cpu.executeProcess();
+
+    /*for (int policy = 0; policy <=2; policy++) {
+        CPU cpu;
+        cpu.schedulePolicy = policy;
+        if (cpu.schedulePolicy == 0) {
+            cout << "FIFO" << endl;
+        } else if (cpu.schedulePolicy == 1) {
+            cout << "SJF" << endl;
+        } else if (cpu.schedulePolicy == 2) {
+            cout << "Round Robin" << endl;
+        } else {
+            cout << "Unknown Policy" << endl;
+        }
+        cpu.executeProcess();
+        cout << "\n\n\n\n\n";*/
 }
 
 /*
