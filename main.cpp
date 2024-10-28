@@ -7,6 +7,8 @@
 #include "processManager.h"
 #include "consoleCommands.h"
 #include "CPUinstructions.h"
+#include "processManager2.h"
+
 using namespace std;
 
 int main()
@@ -22,18 +24,34 @@ int main()
 
     CPU cpu;
     cpu.schedulePolicy = 0; // for Round Robin
-    if(cpu.schedulePolicy == 0) {
+    if (cpu.schedulePolicy == 0)
+    {
         cout << "FIFO" << endl;
     }
-    else if(cpu.schedulePolicy == 1) {
+    else if (cpu.schedulePolicy == 1)
+    {
         cout << "SJF" << endl;
     }
-    else if(cpu.schedulePolicy == 2) {
+    else if (cpu.schedulePolicy == 2)
+    {
         cout << "Round Robin" << endl;
     }
-    else {
+    else
+    {
         cout << "Unknown Policy" << endl;
     }
+
+    cpu.executeProcess();
+
+    ///// try the other policy after this
+
+    delay(6);
+    cout << "\n\n\nChanging Policy to Shortest Job First..." << endl;
+    delay(6);
+    cout << "\nCreating 20 Processes..." << endl;
+    cpu.schedulePolicy = 1;
+
+    fillUpLinkedList(); // will give me a doubly with 20 processes, and an array with sorted cycle order
 
     cpu.executeProcess();
 
