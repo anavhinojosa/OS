@@ -50,7 +50,9 @@ public:
         while (!readyQueue.empty())
         {
             currentProcess = readyQueue.front(); // get the next process (without removing it)
-            readyQueue.pop();                    // remove it from the queue
+            readyQueue.pop();
+            currentProcess.state = 4;
+            // remove it from the queue
             // to show the next content switch to the other process
             cout << "\nContext Switch to Process: " << currentProcess.processId << endl;
 
