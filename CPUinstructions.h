@@ -70,7 +70,7 @@ public:
         cout << "Execution compete, total cycles: " << totalCycles << endl;
     }
 
-    // sjf
+    // rr
     void RR(std::queue<Process> &readyQueue, std::queue<Process> &waitingQueue) // send priority queue with dequeue or wont work
     {
         //  clearConsole();
@@ -144,7 +144,7 @@ public:
 
             Process toExecute = *currentProcess2;
 
-            //     cout << "Process: " << toExecute.processId << ", num Cycles: " << toExecute.numCycles << endl;
+            // cout << "Process: " << toExecute.processId << ", num Cycles: " << toExecute.numCycles << endl;
             processList.erase(currentProcess2);
             delay(3);
             cout << "\nContext switch to Process: " << toExecute.processId << ", with Cycles: " << toExecute.numCycles << endl;
