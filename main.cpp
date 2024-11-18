@@ -1,13 +1,13 @@
 #include <iostream>
 #include <iomanip>
 #include "userInputFunctions.h"
-#include <iostream>
 #include "booting.h"
 #include "auth_page.h"
 #include "processManager.h"
-#include "consoleCommands.h"
+//#include "consoleCommands.h"
 #include "CPUinstructions.h"
 #include "processManager2.h"
+#include "translation.h"
 
 using namespace std;
 
@@ -15,8 +15,10 @@ int main()
 {
     srand(time(0));
     std::cout << std::unitbuf;
-    clearConsole();
+    //clearConsole();
     bootSystem();
+    initializePageTable();
+    printPageTable();
     initializeQueues();
     // initializeQueues() starts me a ready queue with 10 processes in incresing order cycles
     //  std::queue<Process> readyQueue;
