@@ -15,62 +15,33 @@ int main()
 {
     srand(time(0));
     std::cout << std::unitbuf;
-    //clearConsole();
     bootSystem();
     initializePageTable();
     printPageTable();
     initializeQueues();
-    // initializeQueues() starts me a ready queue with 10 processes in incresing order cycles
-    //  std::queue<Process> readyQueue;
-    //  std::queue<Process> waitingQueue;
+
 
     CPU cpu;
-    cpu.schedulePolicy = 0; // for Round Robin
-    if (cpu.schedulePolicy == 0)
-    {
-        cout << "FIFO" << endl;
-    }
-    else if (cpu.schedulePolicy == 1)
-    {
-        cout << "SJF" << endl;
-    }
-    else if (cpu.schedulePolicy == 2)
-    {
-        cout << "Round Robin" << endl;
-    }
-    else
-    {
-        cout << "Unknown Policy" << endl;
-    }
-
+    cpu.schedulePolicy = 0; //fifo
     cpu.executeProcess();
-
-    ///// try the other policy after this
 
     delay(6);
     cout << "\n\n\nChanging Policy to Shortest Job First..." << endl;
     delay(6);
     cout << "\nCreating 20 Processes..." << endl;
-    cpu.schedulePolicy = 1;
+    cpu.schedulePolicy = 1;//sjf
 
     fillUpLinkedList(); // will give me a doubly with 20 processes, and an array with sorted cycle order
-
     cpu.executeProcess();
 
-    /*for (int policy = 0; policy <=2; policy++) {
-        CPU cpu;
-        cpu.schedulePolicy = policy;
-        if (cpu.schedulePolicy == 0) {
-            cout << "FIFO" << endl;
-        } else if (cpu.schedulePolicy == 1) {
-            cout << "SJF" << endl;
-        } else if (cpu.schedulePolicy == 2) {
-            cout << "Round Robin" << endl;
-        } else {
-            cout << "Unknown Policy" << endl;
-        }
-        cpu.executeProcess();
-        cout << "\n\n\n\n\n";*/
+    delay(6);
+    cout << "\n\nChanging Policy to RR..." << endl;
+    initializeQueues();
+    delay(6);
+    cout << "\nCreating 20 Processes..." << endl;
+    cpu.schedulePolicy = 2;//rr
+    cpu.executeProcess();
+
 }
 
 /*

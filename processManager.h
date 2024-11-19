@@ -1,5 +1,6 @@
 #ifndef PROCESSMANAGER_H
 #define PROCESSMANAGER_H
+
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -85,6 +86,9 @@ void displayProcesses()
 
 void initializeQueues()
 {
+    while (!readyQueue.empty()) {
+        readyQueue.pop(); //clear the readyQueue
+    }
     fillUpArray();
     displayProcesses();
     // at this point we should have ready queue with the processes filled up.
