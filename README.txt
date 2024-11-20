@@ -22,3 +22,5 @@ cd title_of_the_folder
 code .
 
 
+clang++ main.cpp -o main
+./main > output.txt

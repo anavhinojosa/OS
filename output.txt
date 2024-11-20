@@ -1,249 +1,283 @@
+
+---BOOTING SYSTEM---
 Booting OS Simulator
 Loading...
 Please do not quit.
 System booted
+
+---MEMORY MANAGEMENT---
 Page Table:
 Virtual Page | Physical Page | Valid
-  0   4    0
-  1   4    1
-  2   1    1
-  3   0    0
-  4   3    1
-  5   0    0
-  6   4    0
+  0   2    1
+  1   5    0
+  2   5    1
+  3   1    0
+  4   3    0
+  5   1    1
+  6   6    0
   7   7    0
-  8   3    1
-  9   6    0
-  10   4    1
-  11   0    1
-  12   1    1
-  13   6    0
-  14   4    1
-  15   6    0
-6
-6
+  8   5    1
+  9   2    1
+  10   6    1
+  11   2    0
+  12   7    1
+  13   2    1
+  14   1    1
+  15   1    0
+
+---TLB SIMULATION---
+
+Starting TLB and Virtual Address Translation Simulation...
+TLB Miss for virutal page: 14
+Translating Virtual Address: 0xe16a
+Virtual Page: e, Offset: 0x16a
+Physical Address: 0x116a
+Current TLB:
+TLB Entry: 0: Virtual Pagee, Physical Page: 1
+TLB Miss for virutal page: 2
+Translating Virtual Address: 0x23f7
+Virtual Page: 2, Offset: 0x3f7
+Physical Address: 0x53f7
+Current TLB:
+TLB Entry: 0: Virtual Pagee, Physical Page: 1
+TLB Entry: 1: Virtual Page2, Physical Page: 5
+TLB Miss for virutal page: 3
+Translating Virtual Address: 0x3656
+Virtual Page: 3, Offset: 0x656
+Page Fault. Virtual Page 3 is invalid.
+Handling Page Fault for Virtual Page: 3
+Translating Virtual Address: 0x3656
+Virtual Page: 3, Offset: 0x656
+Physical Address: 0x6656
+Current TLB:
+TLB Entry: 0: Virtual Pagee, Physical Page: 1
+TLB Entry: 1: Virtual Page2, Physical Page: 5
+TLB Entry: 2: Virtual Page3, Physical Page: 1
+TLB Miss for virtutal page: 4
+Translating Virtual Address: 0x4ea2
+Virtual Page: 4, Offset: 0xea2
+Page Fault. Virtual Page 4 is invalid.
+Handling Page Fault for Virtual Page: 4
+Translating Virtual Address: 0x4ea2
+Virtual Page: 4, Offset: 0xea2
+Physical Address: 0x1ea2
+Current TLB:
+TLB Entry: 0: Virtual Pagee, Physical Page: 1
+TLB Entry: 1: Virtual Page2, Physical Page: 5
+TLB Entry: 2: Virtual Page3, Physical Page: 1
+TLB Entry: 3: Virtual Page4, Physical Page: 3
+TLB Miss for virutal page: 8
+Envicting TLB Entry: 0
+Translating Virtual Address: 0x80bc
+Virtual Page: 8, Offset: 0xbc
+Physical Address: 0x50bc
+Current TLB:
+TLB Entry: 0: Virtual Page8, Physical Page: 5
+TLB Entry: 1: Virtual Page2, Physical Page: 5
+TLB Entry: 2: Virtual Page3, Physical Page: 1
+TLB Entry: 3: Virtual Page4, Physical Page: 3
+TLB Miss for virutal page: c
+Envicting TLB Entry: 1
+Translating Virtual Address: 0xccf7
+Virtual Page: c, Offset: 0xcf7
+Physical Address: 0x7cf7
+Current TLB:
+TLB Entry: 0: Virtual Page8, Physical Page: 5
+TLB Entry: 1: Virtual Pagec, Physical Page: 7
+TLB Entry: 2: Virtual Page3, Physical Page: 1
+TLB Entry: 3: Virtual Page4, Physical Page: 3
+TLB Miss for virutal page: 9
+Envicting TLB Entry: 2
+Translating Virtual Address: 0x93aa
+Virtual Page: 9, Offset: 0x3aa
+Physical Address: 0x23aa
+Current TLB:
+TLB Entry: 0: Virtual Page8, Physical Page: 5
+TLB Entry: 1: Virtual Pagec, Physical Page: 7
+TLB Entry: 2: Virtual Page9, Physical Page: 2
+TLB Entry: 3: Virtual Page4, Physical Page: 3
+TLB Hit for virtual page: 8
+Translating Virtual Address: 0x866b
+Virtual Page: 8, Offset: 0x66b
+Physical Address: 0x566b
+Current TLB:
+TLB Entry: 0: Virtual Page8, Physical Page: 5
+TLB Entry: 1: Virtual Pagec, Physical Page: 7
+TLB Entry: 2: Virtual Page9, Physical Page: 2
+TLB Entry: 3: Virtual Page4, Physical Page: 3
+TLB Miss for virutal page: e
+Envicting TLB Entry: 3
+Translating Virtual Address: 0xe6ec
+Virtual Page: e, Offset: 0x6ec
+Physical Address: 0x16ec
+Current TLB:
+TLB Entry: 0: Virtual Page8, Physical Page: 5
+TLB Entry: 1: Virtual Pagec, Physical Page: 7
+TLB Entry: 2: Virtual Page9, Physical Page: 2
+TLB Entry: 3: Virtual Pagee, Physical Page: 1
+TLB Miss for virutal page: a
+Envicting TLB Entry: 0
+Translating Virtual Address: 0xa823
+Virtual Page: a, Offset: 0x823
+Physical Address: 0x6823
+Current TLB:
+TLB Entry: 0: Virtual Pagea, Physical Page: 6
+TLB Entry: 1: Virtual Pagec, Physical Page: 7
+TLB Entry: 2: Virtual Page9, Physical Page: 2
+TLB Entry: 3: Virtual Pagee, Physical Page: 1
+5
+5
+5
+8
+8
 9
-10
-12
-12
-12
-13
-13
-13
+c
+d
+e
+e
+
+---SCHEDULING POLICIES---
+
+
+Starting FIFO Scheduling...
 Starting FIFO Scheduling...
 
-Context Switch to Process: 7575
-Process 7575 executed an LOAD instruction.
-Process 7575 ,cycles left: 5
-Process 7575 executed an ARITHMETIC instruction.
-Process 7575 ,cycles left: 4
-Process 7575 executed an ARITHMETIC instruction.
-Process 7575 ,cycles left: 3
-Process 7575 executed an ARITHMETIC instruction.
-Process 7575 ,cycles left: 2
-Process 7575 executed an ARITHMETIC instruction.
-Process 7575 ,cycles left: 1
-Process 7575 executed an LOAD instruction.
-Process 7575 ,cycles left: 0
-Process 7575 terminated
+Context Switch to Process: 24d6
+Process 24d6 executed an LOAD instruction.
+Process 24d6 ,cycles left: 4
+Process 24d6 executed an LOGIC instruction.
+Process 24d6 ,cycles left: 3
+Process 24d6 executed an ST instruction.
+Process 24d6 ,cycles left: 2
+Process 24d6 executed an ST instruction.
+Process 24d6 ,cycles left: 1
+Process 24d6 executed an ARITHMETIC instruction.
+Process 24d6 ,cycles left: 0
+Process 24d6 terminated
 
-Context Switch to Process: 2809
-Process 2809 executed an LOAD instruction.
-Process 2809 ,cycles left: 5
-Process 2809 executed an ST instruction.
-Process 2809 ,cycles left: 4
-Process 2809 executed an ARITHMETIC instruction.
-Process 2809 ,cycles left: 3
-Process 2809 executed an ST instruction.
-Process 2809 ,cycles left: 2
-Process 2809 executed an ST instruction.
-Process 2809 ,cycles left: 1
-Process 2809 executed an ARITHMETIC instruction.
-Process 2809 ,cycles left: 0
-Process 2809 terminated
+Context Switch to Process: 1781
+Process 1781 executed an LOAD instruction.
+Process 1781 ,cycles left: 4
+Process 1781 executed an LOAD instruction.
+Process 1781 ,cycles left: 3
+Process 1781 executed an LOGIC instruction.
+Process 1781 ,cycles left: 2
+Process 1781 executed an LOGIC instruction.
+Process 1781 ,cycles left: 1
+Process 1781 executed an LOAD instruction.
+Process 1781 ,cycles left: 0
+Process 1781 terminated
 
-Context Switch to Process: 7575
-Process 7575 executed an ST instruction.
-Process 7575 ,cycles left: 5
-Process 7575 executed an ST instruction.
-Process 7575 ,cycles left: 4
-Process 7575 executed an LOGIC instruction.
-Process 7575 ,cycles left: 3
-Process 7575 executed an LOGIC instruction.
-Process 7575 ,cycles left: 2
-Process 7575 executed an ARITHMETIC instruction.
-Process 7575 ,cycles left: 1
-Process 7575 executed an LOGIC instruction.
-Process 7575 ,cycles left: 0
-Process 7575 terminated
+Context Switch to Process: 1a62
+Process 1a62 executed an ST instruction.
+Process 1a62 ,cycles left: 4
+Process 1a62 executed an LOAD instruction.
+Process 1a62 ,cycles left: 3
+Process 1a62 executed an ARITHMETIC instruction.
+Process 1a62 ,cycles left: 2
+Process 1a62 executed an ST instruction.
+Process 1a62 ,cycles left: 1
+Process 1a62 executed an LOGIC instruction.
+Process 1a62 ,cycles left: 0
+Process 1a62 terminated
 
-Context Switch to Process: 2809
-Process 2809 executed an ARITHMETIC instruction.
-Process 2809 ,cycles left: 5
-Process 2809 executed an LOGIC instruction.
-Process 2809 ,cycles left: 4
-Process 2809 executed an LOAD instruction.
-Process 2809 ,cycles left: 3
-Process 2809 executed an LOAD instruction.
-Process 2809 ,cycles left: 2
-Process 2809 executed an LOGIC instruction.
-Process 2809 ,cycles left: 1
-Process 2809 executed an LOAD instruction.
-Process 2809 ,cycles left: 0
-Process 2809 terminated
+Context Switch to Process: 24d6
+Process 24d6 executed an LOGIC instruction.
+Process 24d6 ,cycles left: 4
+Process 24d6 executed an LOGIC instruction.
+Process 24d6 ,cycles left: 3
+Process 24d6 executed an LOGIC instruction.
+Process 24d6 ,cycles left: 2
+Process 24d6 executed an ST instruction.
+Process 24d6 ,cycles left: 1
+Process 24d6 executed an LOAD instruction.
+Process 24d6 ,cycles left: 0
+Process 24d6 terminated
 
-Context Switch to Process: 7386
-Process 7386 executed an LOGIC instruction.
-Process 7386 ,cycles left: 8
-Process 7386 executed an ARITHMETIC instruction.
-Process 7386 ,cycles left: 7
-Process 7386 executed an ST instruction.
-Process 7386 ,cycles left: 6
-Process 7386 executed an LOAD instruction.
-Process 7386 ,cycles left: 5
-Process 7386 executed an ARITHMETIC instruction.
-Process 7386 ,cycles left: 4
-Process 7386 executed an ST instruction.
-Process 7386 ,cycles left: 3
-Process 7386 executed an ST instruction.
-Process 7386 ,cycles left: 2
-Process 7386 executed an LOGIC instruction.
-Process 7386 ,cycles left: 1
-Process 7386 executed an LOGIC instruction.
-Process 7386 ,cycles left: 0
-Process 7386 terminated
+Context Switch to Process: 1781
+Process 1781 executed an LOAD instruction.
+Process 1781 ,cycles left: 4
+Process 1781 executed an LOAD instruction.
+Process 1781 ,cycles left: 3
+Process 1781 executed an ARITHMETIC instruction.
+Process 1781 ,cycles left: 2
+Process 1781 executed an ST instruction.
+Process 1781 ,cycles left: 1
+Process 1781 executed an ST instruction.
+Process 1781 ,cycles left: 0
+Process 1781 terminated
 
-Context Switch to Process: 4406
-Process 4406 executed an ST instruction.
-Process 4406 ,cycles left: 9
-Process 4406 executed an ARITHMETIC instruction.
-Process 4406 ,cycles left: 8
-Process 4406 executed an LOAD instruction.
-Process 4406 ,cycles left: 7
-Process 4406 executed an ARITHMETIC instruction.
-Process 4406 ,cycles left: 6
-Process 4406 executed an LOGIC instruction.
-Process 4406 ,cycles left: 5
-Process 4406 executed an ST instruction.
-Process 4406 ,cycles left: 4
-Process 4406 executed an LOAD instruction.
-Process 4406 ,cycles left: 3
-Process 4406 executed an ST instruction.
-Process 4406 ,cycles left: 2
-Process 4406 executed an ST instruction.
-Process 4406 ,cycles left: 1
-Process 4406 executed an LOAD instruction.
-Process 4406 ,cycles left: 0
-Process 4406 terminated
+Context Switch to Process: 1a62
+Process 1a62 executed an LOGIC instruction.
+Process 1a62 ,cycles left: 4
+Process 1a62 executed an LOAD instruction.
+Process 1a62 ,cycles left: 3
+Process 1a62 executed an LOAD instruction.
+Process 1a62 ,cycles left: 2
+Process 1a62 executed an LOGIC instruction.
+Process 1a62 ,cycles left: 1
+Process 1a62 executed an LOGIC instruction.
+Process 1a62 ,cycles left: 0
+Process 1a62 terminated
 
-Context Switch to Process: 8177
-Process 8177 executed an ARITHMETIC instruction.
-Process 8177 ,cycles left: 11
-Process 8177 executed an ST instruction.
-Process 8177 ,cycles left: 10
-Process 8177 executed an ST instruction.
-Process 8177 ,cycles left: 9
-Process 8177 executed an ARITHMETIC instruction.
-Process 8177 ,cycles left: 8
-Process 8177 executed an ST instruction.
-Process 8177 ,cycles left: 7
-Process 8177 executed an ARITHMETIC instruction.
-Process 8177 ,cycles left: 6
-Process 8177 executed an ST instruction.
-Process 8177 ,cycles left: 5
-Process 8177 executed an ARITHMETIC instruction.
-Process 8177 ,cycles left: 4
-Process 8177 executed an ARITHMETIC instruction.
-Process 8177 ,cycles left: 3
-Process 8177 executed an LOAD instruction.
-Process 8177 ,cycles left: 2
-Process 8177 executed an LOAD instruction.
-Process 8177 ,cycles left: 1
-Process 8177 executed an ST instruction.
-Process 8177 ,cycles left: 0
-Process 8177 terminated
+Context Switch to Process: 24d6
+Process 24d6 executed an ST instruction.
+Process 24d6 ,cycles left: 4
+Process 24d6 executed an ARITHMETIC instruction.
+Process 24d6 ,cycles left: 3
+Process 24d6 executed an LOAD instruction.
+Process 24d6 ,cycles left: 2
+Process 24d6 executed an ST instruction.
+Process 24d6 ,cycles left: 1
+Process 24d6 executed an LOAD instruction.
+Process 24d6 ,cycles left: 0
+Process 24d6 terminated
 
-Context Switch to Process: 4909
-Process 4909 executed an ST instruction.
-Process 4909 ,cycles left: 11
-Process 4909 executed an LOAD instruction.
-Process 4909 ,cycles left: 10
-Process 4909 executed an ST instruction.
-Process 4909 ,cycles left: 9
-Process 4909 executed an LOAD instruction.
-Process 4909 ,cycles left: 8
-Process 4909 executed an LOGIC instruction.
-Process 4909 ,cycles left: 7
-Process 4909 executed an LOAD instruction.
-Process 4909 ,cycles left: 6
-Process 4909 executed an LOAD instruction.
-Process 4909 ,cycles left: 5
-Process 4909 executed an ARITHMETIC instruction.
-Process 4909 ,cycles left: 4
-Process 4909 executed an ST instruction.
-Process 4909 ,cycles left: 3
-Process 4909 executed an LOGIC instruction.
-Process 4909 ,cycles left: 2
-Process 4909 executed an ARITHMETIC instruction.
-Process 4909 ,cycles left: 1
-Process 4909 executed an LOGIC instruction.
-Process 4909 ,cycles left: 0
-Process 4909 terminated
+Context Switch to Process: 1781
+Process 1781 executed an LOGIC instruction.
+Process 1781 ,cycles left: 4
+Process 1781 executed an ARITHMETIC instruction.
+Process 1781 ,cycles left: 3
+Process 1781 executed an LOAD instruction.
+Process 1781 ,cycles left: 2
+Process 1781 executed an ST instruction.
+Process 1781 ,cycles left: 1
+Process 1781 executed an ARITHMETIC instruction.
+Process 1781 ,cycles left: 0
+Process 1781 terminated
 
-Context Switch to Process: 1554
-Process 1554 executed an ST instruction.
-Process 1554 ,cycles left: 11
-Process 1554 executed an LOAD instruction.
-Process 1554 ,cycles left: 10
-Process 1554 executed an ARITHMETIC instruction.
-Process 1554 ,cycles left: 9
-Process 1554 executed an LOAD instruction.
-Process 1554 ,cycles left: 8
-Process 1554 executed an LOAD instruction.
-Process 1554 ,cycles left: 7
-Process 1554 executed an LOGIC instruction.
-Process 1554 ,cycles left: 6
-Process 1554 executed an ST instruction.
-Process 1554 ,cycles left: 5
-Process 1554 executed an ARITHMETIC instruction.
-Process 1554 ,cycles left: 4
-Process 1554 executed an LOAD instruction.
-Process 1554 ,cycles left: 3
-Process 1554 executed an LOGIC instruction.
-Process 1554 ,cycles left: 2
-Process 1554 executed an LOGIC instruction.
-Process 1554 ,cycles left: 1
-Process 1554 executed an LOAD instruction.
-Process 1554 ,cycles left: 0
-Process 1554 terminated
+Context Switch to Process: 1a62
+Process 1a62 executed an LOGIC instruction.
+Process 1a62 ,cycles left: 4
+Process 1a62 executed an ARITHMETIC instruction.
+Process 1a62 ,cycles left: 3
+Process 1a62 executed an LOGIC instruction.
+Process 1a62 ,cycles left: 2
+Process 1a62 executed an LOAD instruction.
+Process 1a62 ,cycles left: 1
+Process 1a62 executed an ARITHMETIC instruction.
+Process 1a62 ,cycles left: 0
+Process 1a62 terminated
 
-Context Switch to Process: 8177
-Process 8177 executed an ST instruction.
-Process 8177 ,cycles left: 11
-Process 8177 executed an ARITHMETIC instruction.
-Process 8177 ,cycles left: 10
-Process 8177 executed an ARITHMETIC instruction.
-Process 8177 ,cycles left: 9
-Process 8177 executed an ARITHMETIC instruction.
-Process 8177 ,cycles left: 8
-Process 8177 executed an LOGIC instruction.
-Process 8177 ,cycles left: 7
-Process 8177 executed an LOAD instruction.
-Process 8177 ,cycles left: 6
-Process 8177 executed an ARITHMETIC instruction.
-Process 8177 ,cycles left: 5
-Process 8177 executed an LOGIC instruction.
-Process 8177 ,cycles left: 4
-Process 8177 executed an ST instruction.
-Process 8177 ,cycles left: 3
-Process 8177 executed an ST instruction.
-Process 8177 ,cycles left: 2
-Process 8177 executed an LOAD instruction.
-Process 8177 ,cycles left: 1
-Process 8177 executed an ARITHMETIC instruction.
-Process 8177 ,cycles left: 0
-Process 8177 terminated
-Execution compete, total cycles: 91
+Context Switch to Process: 6fa
+Process 6fa executed an ST instruction.
+Process 6fa ,cycles left: 7
+Process 6fa executed an ARITHMETIC instruction.
+Process 6fa ,cycles left: 6
+Process 6fa executed an ARITHMETIC instruction.
+Process 6fa ,cycles left: 5
+Process 6fa executed an ST instruction.
+Process 6fa ,cycles left: 4
+Process 6fa executed an ST instruction.
+Process 6fa ,cycles left: 3
+Process 6fa executed an ARITHMETIC instruction.
+Process 6fa ,cycles left: 2
+Process 6fa executed an LOAD instruction.
+Process 6fa ,cycles left: 1
+Process 6fa executed an LOGIC instruction.
+Process 6fa ,cycles left: 0
+Process 6fa terminated
+Execution compete, total cycles: 35
 
 
 
@@ -252,23 +286,55 @@ Changing Policy to Shortest Job First...
 Creating 20 Processes...
 Starting Shortest Job First Scheduling...
 
-Context switch to Process: 17, with Cycles: 6
-Cycles left: 6
+Context switch to Process: f, with Cycles: 5
 Cycles left: 5
 Cycles left: 4
 Cycles left: 3
 Cycles left: 2
 Cycles left: 1
-Process: 17 terminated!
+Process: f terminated!
 
-Context switch to Process: 7, with Cycles: 6
+Context switch to Process: a, with Cycles: 5
+Cycles left: 5
+Cycles left: 4
+Cycles left: 3
+Cycles left: 2
+Cycles left: 1
+Process: a terminated!
+
+Context switch to Process: 6, with Cycles: 5
+Cycles left: 5
+Cycles left: 4
+Cycles left: 3
+Cycles left: 2
+Cycles left: 1
+Process: 6 terminated!
+
+Context switch to Process: 5, with Cycles: 5
+Cycles left: 5
+Cycles left: 4
+Cycles left: 3
+Cycles left: 2
+Cycles left: 1
+Process: 5 terminated!
+
+Context switch to Process: e, with Cycles: 6
 Cycles left: 6
 Cycles left: 5
 Cycles left: 4
 Cycles left: 3
 Cycles left: 2
 Cycles left: 1
-Process: 7 terminated!
+Process: e terminated!
+
+Context switch to Process: 8, with Cycles: 6
+Cycles left: 6
+Cycles left: 5
+Cycles left: 4
+Cycles left: 3
+Cycles left: 2
+Cycles left: 1
+Process: 8 terminated!
 
 Context switch to Process: 1, with Cycles: 6
 Cycles left: 6
@@ -278,15 +344,6 @@ Cycles left: 3
 Cycles left: 2
 Cycles left: 1
 Process: 1 terminated!
-
-Context switch to Process: 0, with Cycles: 6
-Cycles left: 6
-Cycles left: 5
-Cycles left: 4
-Cycles left: 3
-Cycles left: 2
-Cycles left: 1
-Process: 0 terminated!
 
 Context switch to Process: 13, with Cycles: 7
 Cycles left: 7
@@ -298,7 +355,7 @@ Cycles left: 2
 Cycles left: 1
 Process: 13 terminated!
 
-Context switch to Process: 9, with Cycles: 7
+Context switch to Process: c, with Cycles: 7
 Cycles left: 7
 Cycles left: 6
 Cycles left: 5
@@ -306,31 +363,9 @@ Cycles left: 4
 Cycles left: 3
 Cycles left: 2
 Cycles left: 1
-Process: 9 terminated!
+Process: c terminated!
 
-Context switch to Process: 3, with Cycles: 7
-Cycles left: 7
-Cycles left: 6
-Cycles left: 5
-Cycles left: 4
-Cycles left: 3
-Cycles left: 2
-Cycles left: 1
-Process: 3 terminated!
-
-Context switch to Process: 14, with Cycles: 8
-Cycles left: 8
-Cycles left: 7
-Cycles left: 6
-Cycles left: 5
-Cycles left: 4
-Cycles left: 3
-Cycles left: 2
-Cycles left: 1
-Process: 14 terminated!
-
-Context switch to Process: 2, with Cycles: 8
-Cycles left: 8
+Context switch to Process: 2, with Cycles: 7
 Cycles left: 7
 Cycles left: 6
 Cycles left: 5
@@ -340,7 +375,18 @@ Cycles left: 2
 Cycles left: 1
 Process: 2 terminated!
 
-Context switch to Process: 16, with Cycles: 9
+Context switch to Process: 3, with Cycles: 8
+Cycles left: 8
+Cycles left: 7
+Cycles left: 6
+Cycles left: 5
+Cycles left: 4
+Cycles left: 3
+Cycles left: 2
+Cycles left: 1
+Process: 3 terminated!
+
+Context switch to Process: b, with Cycles: 9
 Cycles left: 9
 Cycles left: 8
 Cycles left: 7
@@ -350,9 +396,9 @@ Cycles left: 4
 Cycles left: 3
 Cycles left: 2
 Cycles left: 1
-Process: 16 terminated!
+Process: b terminated!
 
-Context switch to Process: 12, with Cycles: 9
+Context switch to Process: 7, with Cycles: 9
 Cycles left: 9
 Cycles left: 8
 Cycles left: 7
@@ -362,9 +408,10 @@ Cycles left: 4
 Cycles left: 3
 Cycles left: 2
 Cycles left: 1
-Process: 12 terminated!
+Process: 7 terminated!
 
-Context switch to Process: 8, with Cycles: 9
+Context switch to Process: 0, with Cycles: a
+Cycles left: a
 Cycles left: 9
 Cycles left: 8
 Cycles left: 7
@@ -374,56 +421,11 @@ Cycles left: 4
 Cycles left: 3
 Cycles left: 2
 Cycles left: 1
-Process: 8 terminated!
+Process: 0 terminated!
 
-Context switch to Process: 18, with Cycles: 11
-Cycles left: 11
-Cycles left: 10
-Cycles left: 9
-Cycles left: 8
-Cycles left: 7
-Cycles left: 6
-Cycles left: 5
-Cycles left: 4
-Cycles left: 3
-Cycles left: 2
-Cycles left: 1
-Process: 18 terminated!
-
-Context switch to Process: 10, with Cycles: 11
-Cycles left: 11
-Cycles left: 10
-Cycles left: 9
-Cycles left: 8
-Cycles left: 7
-Cycles left: 6
-Cycles left: 5
-Cycles left: 4
-Cycles left: 3
-Cycles left: 2
-Cycles left: 1
-Process: 10 terminated!
-
-Context switch to Process: 19, with Cycles: 12
-Cycles left: 12
-Cycles left: 11
-Cycles left: 10
-Cycles left: 9
-Cycles left: 8
-Cycles left: 7
-Cycles left: 6
-Cycles left: 5
-Cycles left: 4
-Cycles left: 3
-Cycles left: 2
-Cycles left: 1
-Process: 19 terminated!
-
-Context switch to Process: 11, with Cycles: 13
-Cycles left: 13
-Cycles left: 12
-Cycles left: 11
-Cycles left: 10
+Context switch to Process: 11, with Cycles: b
+Cycles left: b
+Cycles left: a
 Cycles left: 9
 Cycles left: 8
 Cycles left: 7
@@ -435,11 +437,9 @@ Cycles left: 2
 Cycles left: 1
 Process: 11 terminated!
 
-Context switch to Process: 5, with Cycles: 13
-Cycles left: 13
-Cycles left: 12
-Cycles left: 11
-Cycles left: 10
+Context switch to Process: 10, with Cycles: b
+Cycles left: b
+Cycles left: a
 Cycles left: 9
 Cycles left: 8
 Cycles left: 7
@@ -449,13 +449,59 @@ Cycles left: 4
 Cycles left: 3
 Cycles left: 2
 Cycles left: 1
-Process: 5 terminated!
+Process: 10 terminated!
 
-Context switch to Process: 4, with Cycles: 13
-Cycles left: 13
-Cycles left: 12
-Cycles left: 11
-Cycles left: 10
+Context switch to Process: d, with Cycles: b
+Cycles left: b
+Cycles left: a
+Cycles left: 9
+Cycles left: 8
+Cycles left: 7
+Cycles left: 6
+Cycles left: 5
+Cycles left: 4
+Cycles left: 3
+Cycles left: 2
+Cycles left: 1
+Process: d terminated!
+
+Context switch to Process: 9, with Cycles: b
+Cycles left: b
+Cycles left: a
+Cycles left: 9
+Cycles left: 8
+Cycles left: 7
+Cycles left: 6
+Cycles left: 5
+Cycles left: 4
+Cycles left: 3
+Cycles left: 2
+Cycles left: 1
+Process: 9 terminated!
+
+Context switch to Process: 12, with Cycles: e
+Cycles left: e
+Cycles left: d
+Cycles left: c
+Cycles left: b
+Cycles left: a
+Cycles left: 9
+Cycles left: 8
+Cycles left: 7
+Cycles left: 6
+Cycles left: 5
+Cycles left: 4
+Cycles left: 3
+Cycles left: 2
+Cycles left: 1
+Process: 12 terminated!
+
+Context switch to Process: 4, with Cycles: e
+Cycles left: e
+Cycles left: d
+Cycles left: c
+Cycles left: b
+Cycles left: a
 Cycles left: 9
 Cycles left: 8
 Cycles left: 7
@@ -467,373 +513,309 @@ Cycles left: 2
 Cycles left: 1
 Process: 4 terminated!
 
-Context switch to Process: 15, with Cycles: 14
-Cycles left: 14
-Cycles left: 13
-Cycles left: 12
-Cycles left: 11
-Cycles left: 10
-Cycles left: 9
-Cycles left: 8
-Cycles left: 7
-Cycles left: 6
-Cycles left: 5
-Cycles left: 4
-Cycles left: 3
-Cycles left: 2
-Cycles left: 1
-Process: 15 terminated!
-
-Context switch to Process: 6, with Cycles: 14
-Cycles left: 14
-Cycles left: 13
-Cycles left: 12
-Cycles left: 11
-Cycles left: 10
-Cycles left: 9
-Cycles left: 8
-Cycles left: 7
-Cycles left: 6
-Cycles left: 5
-Cycles left: 4
-Cycles left: 3
-Cycles left: 2
-Cycles left: 1
-Process: 6 terminated!
-
 
 Changing Policy to RR...
 5
-7
-7
+5
+6
 7
 8
 8
-11
-13
-14
-14
+b
+b
+b
+e
 
 Creating 20 Processes...
 Starting Round Robin Scheduling...
 
-Context Switch to Process: 4909
-Process 4909 executed an LOGIC instruction.
-Process 4909,cycles left: 11
-Process 4909 executed an ST instruction.
-Process 4909,cycles left: 10
-Process 4909 executed an LOAD instruction.
-Process 4909,cycles left: 9
-Process 4909 executed an LOGIC instruction.
-Process 4909,cycles left: 8
-Process 4909 executed an LOGIC instruction.
-Process 4909,cycles left: 7
+Context Switch to Process: aaa
+Process aaa executed an ST instruction.
+Process aaa,cycles left: 7
+Process aaa executed an LOAD instruction.
+Process aaa,cycles left: 6
+Process aaa executed an ST instruction.
+Process aaa,cycles left: 5
+Process aaa executed an ARITHMETIC instruction.
+Process aaa,cycles left: 4
+Process aaa executed an ARITHMETIC instruction.
+Process aaa,cycles left: 3
 
-Context Switch to Process: 1554
-Process 1554 executed an ST instruction.
-Process 1554,cycles left: 11
-Process 1554 executed an ST instruction.
-Process 1554,cycles left: 10
-Process 1554 executed an ARITHMETIC instruction.
-Process 1554,cycles left: 9
-Process 1554 executed an LOGIC instruction.
-Process 1554,cycles left: 8
-Process 1554 executed an LOAD instruction.
-Process 1554,cycles left: 7
+Context Switch to Process: 6fa
+Process 6fa executed an LOAD instruction.
+Process 6fa,cycles left: 7
+Process 6fa executed an LOGIC instruction.
+Process 6fa,cycles left: 6
+Process 6fa executed an ST instruction.
+Process 6fa,cycles left: 5
+Process 6fa executed an LOAD instruction.
+Process 6fa,cycles left: 4
+Process 6fa executed an ST instruction.
+Process 6fa,cycles left: 3
 
-Context Switch to Process: 8177
-Process 8177 executed an LOAD instruction.
-Process 8177,cycles left: 11
-Process 8177 executed an LOAD instruction.
-Process 8177,cycles left: 10
-Process 8177 executed an ST instruction.
-Process 8177,cycles left: 9
-Process 8177 executed an LOAD instruction.
-Process 8177,cycles left: 8
-Process 8177 executed an LOAD instruction.
-Process 8177,cycles left: 7
+Context Switch to Process: aaa
+Process aaa executed an LOGIC instruction.
+Process aaa,cycles left: 7
+Process aaa executed an LOGIC instruction.
+Process aaa,cycles left: 6
+Process aaa executed an LOAD instruction.
+Process aaa,cycles left: 5
+Process aaa executed an LOAD instruction.
+Process aaa,cycles left: 4
+Process aaa executed an LOAD instruction.
+Process aaa,cycles left: 3
 
-Context Switch to Process: 4909
-Process 4909 executed an LOAD instruction.
-Process 4909,cycles left: 11
-Process 4909 executed an LOGIC instruction.
-Process 4909,cycles left: 10
-Process 4909 executed an LOAD instruction.
-Process 4909,cycles left: 9
-Process 4909 executed an LOAD instruction.
-Process 4909,cycles left: 8
-Process 4909 executed an LOAD instruction.
-Process 4909,cycles left: 7
+Context Switch to Process: 69e
+Process 69e executed an LOGIC instruction.
+Process 69e,cycles left: 8
+Process 69e executed an LOGIC instruction.
+Process 69e,cycles left: 7
+Process 69e executed an LOGIC instruction.
+Process 69e,cycles left: 6
+Process 69e executed an ST instruction.
+Process 69e,cycles left: 5
+Process 69e executed an ST instruction.
+Process 69e,cycles left: 4
 
-Context Switch to Process: 1554
-Process 1554 executed an LOGIC instruction.
-Process 1554,cycles left: 11
-Process 1554 executed an ARITHMETIC instruction.
-Process 1554,cycles left: 10
-Process 1554 executed an ARITHMETIC instruction.
-Process 1554,cycles left: 9
-Process 1554 executed an ST instruction.
-Process 1554,cycles left: 8
-Process 1554 executed an ARITHMETIC instruction.
-Process 1554,cycles left: 7
+Context Switch to Process: 24e8
+Process 24e8 executed an ST instruction.
+Process 24e8,cycles left: b
+Process 24e8 executed an ARITHMETIC instruction.
+Process 24e8,cycles left: a
+Process 24e8 executed an ARITHMETIC instruction.
+Process 24e8,cycles left: 9
+Process 24e8 executed an LOGIC instruction.
+Process 24e8,cycles left: 8
+Process 24e8 executed an LOAD instruction.
+Process 24e8,cycles left: 7
 
-Context Switch to Process: 2493
-Process 2493 executed an LOAD instruction.
-Process 2493,cycles left: 12
-Process 2493 executed an LOAD instruction.
-Process 2493,cycles left: 11
-Process 2493 executed an LOGIC instruction.
-Process 2493,cycles left: 10
-Process 2493 executed an ARITHMETIC instruction.
-Process 2493,cycles left: 9
-Process 2493 executed an ARITHMETIC instruction.
-Process 2493,cycles left: 8
+Context Switch to Process: 1a77
+Process 1a77 executed an LOGIC instruction.
+Process 1a77,cycles left: c
+Process 1a77 executed an ARITHMETIC instruction.
+Process 1a77,cycles left: b
+Process 1a77 executed an LOGIC instruction.
+Process 1a77,cycles left: a
+Process 1a77 executed an LOAD instruction.
+Process 1a77,cycles left: 9
+Process 1a77 executed an LOGIC instruction.
+Process 1a77,cycles left: 8
 
-Context Switch to Process: 3140
-Process 3140 executed an LOAD instruction.
-Process 3140,cycles left: 12
-Process 3140 executed an LOAD instruction.
-Process 3140,cycles left: 11
-Process 3140 executed an ARITHMETIC instruction.
-Process 3140,cycles left: 10
-Process 3140 executed an LOAD instruction.
-Process 3140,cycles left: 9
-Process 3140 executed an ST instruction.
-Process 3140,cycles left: 8
+Context Switch to Process: 155a
+Process 155a executed an ARITHMETIC instruction.
+Process 155a,cycles left: d
+Process 155a executed an ARITHMETIC instruction.
+Process 155a,cycles left: c
+Process 155a executed an LOGIC instruction.
+Process 155a,cycles left: b
+Process 155a executed an ST instruction.
+Process 155a,cycles left: a
+Process 155a executed an ST instruction.
+Process 155a,cycles left: 9
 
-Context Switch to Process: 2677
-Process 2677 executed an ARITHMETIC instruction.
-Process 2677,cycles left: 12
-Process 2677 executed an LOAD instruction.
-Process 2677,cycles left: 11
-Process 2677 executed an ARITHMETIC instruction.
-Process 2677,cycles left: 10
-Process 2677 executed an ST instruction.
-Process 2677,cycles left: 9
-Process 2677 executed an LOGIC instruction.
-Process 2677,cycles left: 8
+Context Switch to Process: 1596
+Process 1596 executed an LOGIC instruction.
+Process 1596,cycles left: d
+Process 1596 executed an ST instruction.
+Process 1596,cycles left: c
+Process 1596 executed an ST instruction.
+Process 1596,cycles left: b
+Process 1596 executed an ARITHMETIC instruction.
+Process 1596,cycles left: a
+Process 1596 executed an LOAD instruction.
+Process 1596,cycles left: 9
 
-Context Switch to Process: 2493
-Process 2493 executed an ST instruction.
-Process 2493,cycles left: 12
-Process 2493 executed an LOGIC instruction.
-Process 2493,cycles left: 11
-Process 2493 executed an ARITHMETIC instruction.
-Process 2493,cycles left: 10
-Process 2493 executed an ST instruction.
-Process 2493,cycles left: 9
-Process 2493 executed an ST instruction.
-Process 2493,cycles left: 8
+Context Switch to Process: 155a
+Process 155a executed an LOAD instruction.
+Process 155a,cycles left: d
+Process 155a executed an ST instruction.
+Process 155a,cycles left: c
+Process 155a executed an ST instruction.
+Process 155a,cycles left: b
+Process 155a executed an ST instruction.
+Process 155a,cycles left: a
+Process 155a executed an ST instruction.
+Process 155a,cycles left: 9
 
-Context Switch to Process: 3140
-Process 3140 executed an ARITHMETIC instruction.
-Process 3140,cycles left: 12
-Process 3140 executed an ARITHMETIC instruction.
-Process 3140,cycles left: 11
-Process 3140 executed an LOGIC instruction.
-Process 3140,cycles left: 10
-Process 3140 executed an ARITHMETIC instruction.
-Process 3140,cycles left: 9
-Process 3140 executed an ST instruction.
-Process 3140,cycles left: 8
+Context Switch to Process: 1596
+Process 1596 executed an ARITHMETIC instruction.
+Process 1596,cycles left: d
+Process 1596 executed an LOAD instruction.
+Process 1596,cycles left: c
+Process 1596 executed an LOAD instruction.
+Process 1596,cycles left: b
+Process 1596 executed an ARITHMETIC instruction.
+Process 1596,cycles left: a
+Process 1596 executed an ST instruction.
+Process 1596,cycles left: 9
 
-Context Switch to Process: 4909
-Process 4909 executed an ARITHMETIC instruction.
-Process 4909,cycles left: 6
-Process 4909 executed an LOGIC instruction.
-Process 4909,cycles left: 5
-Process 4909 executed an ARITHMETIC instruction.
-Process 4909,cycles left: 4
-Process 4909 executed an ST instruction.
-Process 4909,cycles left: 3
-Process 4909 executed an ST instruction.
-Process 4909,cycles left: 2
+Context Switch to Process: aaa
+Process aaa executed an LOGIC instruction.
+Process aaa,cycles left: 2
+Process aaa executed an ST instruction.
+Process aaa,cycles left: 1
+Process aaa executed an LOGIC instruction.
+Process aaa,cycles left: 0
+Process aaa terminated
 
-Context Switch to Process: 1554
-Process 1554 executed an ST instruction.
-Process 1554,cycles left: 6
-Process 1554 executed an ST instruction.
-Process 1554,cycles left: 5
-Process 1554 executed an ARITHMETIC instruction.
-Process 1554,cycles left: 4
-Process 1554 executed an ST instruction.
-Process 1554,cycles left: 3
-Process 1554 executed an LOAD instruction.
-Process 1554,cycles left: 2
+Context Switch to Process: 6fa
+Process 6fa executed an LOAD instruction.
+Process 6fa,cycles left: 2
+Process 6fa executed an ST instruction.
+Process 6fa,cycles left: 1
+Process 6fa executed an LOAD instruction.
+Process 6fa,cycles left: 0
+Process 6fa terminated
 
-Context Switch to Process: 8177
-Process 8177 executed an ST instruction.
-Process 8177,cycles left: 6
-Process 8177 executed an ST instruction.
-Process 8177,cycles left: 5
-Process 8177 executed an ST instruction.
-Process 8177,cycles left: 4
-Process 8177 executed an ST instruction.
-Process 8177,cycles left: 3
-Process 8177 executed an ST instruction.
-Process 8177,cycles left: 2
+Context Switch to Process: aaa
+Process aaa executed an LOAD instruction.
+Process aaa,cycles left: 2
+Process aaa executed an ST instruction.
+Process aaa,cycles left: 1
+Process aaa executed an ST instruction.
+Process aaa,cycles left: 0
+Process aaa terminated
 
-Context Switch to Process: 4909
-Process 4909 executed an LOAD instruction.
-Process 4909,cycles left: 6
-Process 4909 executed an ST instruction.
-Process 4909,cycles left: 5
-Process 4909 executed an LOAD instruction.
-Process 4909,cycles left: 4
-Process 4909 executed an LOAD instruction.
-Process 4909,cycles left: 3
-Process 4909 executed an ARITHMETIC instruction.
-Process 4909,cycles left: 2
+Context Switch to Process: 69e
+Process 69e executed an ST instruction.
+Process 69e,cycles left: 3
+Process 69e executed an LOAD instruction.
+Process 69e,cycles left: 2
+Process 69e executed an LOAD instruction.
+Process 69e,cycles left: 1
+Process 69e executed an ST instruction.
+Process 69e,cycles left: 0
+Process 69e terminated
 
-Context Switch to Process: 1554
-Process 1554 executed an LOGIC instruction.
-Process 1554,cycles left: 6
-Process 1554 executed an ARITHMETIC instruction.
-Process 1554,cycles left: 5
-Process 1554 executed an LOGIC instruction.
-Process 1554,cycles left: 4
-Process 1554 executed an ARITHMETIC instruction.
-Process 1554,cycles left: 3
-Process 1554 executed an ST instruction.
-Process 1554,cycles left: 2
+Context Switch to Process: 24e8
+Process 24e8 executed an ARITHMETIC instruction.
+Process 24e8,cycles left: 6
+Process 24e8 executed an LOAD instruction.
+Process 24e8,cycles left: 5
+Process 24e8 executed an ST instruction.
+Process 24e8,cycles left: 4
+Process 24e8 executed an LOGIC instruction.
+Process 24e8,cycles left: 3
+Process 24e8 executed an LOAD instruction.
+Process 24e8,cycles left: 2
 
-Context Switch to Process: 2493
-Process 2493 executed an ARITHMETIC instruction.
-Process 2493,cycles left: 7
-Process 2493 executed an ARITHMETIC instruction.
-Process 2493,cycles left: 6
-Process 2493 executed an LOGIC instruction.
-Process 2493,cycles left: 5
-Process 2493 executed an ST instruction.
-Process 2493,cycles left: 4
-Process 2493 executed an ST instruction.
-Process 2493,cycles left: 3
+Context Switch to Process: 1a77
+Process 1a77 executed an LOAD instruction.
+Process 1a77,cycles left: 7
+Process 1a77 executed an ST instruction.
+Process 1a77,cycles left: 6
+Process 1a77 executed an LOAD instruction.
+Process 1a77,cycles left: 5
+Process 1a77 executed an ARITHMETIC instruction.
+Process 1a77,cycles left: 4
+Process 1a77 executed an LOGIC instruction.
+Process 1a77,cycles left: 3
 
-Context Switch to Process: 3140
-Process 3140 executed an LOGIC instruction.
-Process 3140,cycles left: 7
-Process 3140 executed an LOGIC instruction.
-Process 3140,cycles left: 6
-Process 3140 executed an ST instruction.
-Process 3140,cycles left: 5
-Process 3140 executed an ARITHMETIC instruction.
-Process 3140,cycles left: 4
-Process 3140 executed an ARITHMETIC instruction.
-Process 3140,cycles left: 3
+Context Switch to Process: 155a
+Process 155a executed an ST instruction.
+Process 155a,cycles left: 8
+Process 155a executed an ST instruction.
+Process 155a,cycles left: 7
+Process 155a executed an LOAD instruction.
+Process 155a,cycles left: 6
+Process 155a executed an LOAD instruction.
+Process 155a,cycles left: 5
+Process 155a executed an LOGIC instruction.
+Process 155a,cycles left: 4
 
-Context Switch to Process: 2677
-Process 2677 executed an ARITHMETIC instruction.
-Process 2677,cycles left: 7
-Process 2677 executed an LOGIC instruction.
-Process 2677,cycles left: 6
-Process 2677 executed an ARITHMETIC instruction.
-Process 2677,cycles left: 5
-Process 2677 executed an LOGIC instruction.
-Process 2677,cycles left: 4
-Process 2677 executed an ARITHMETIC instruction.
-Process 2677,cycles left: 3
+Context Switch to Process: 1596
+Process 1596 executed an LOGIC instruction.
+Process 1596,cycles left: 8
+Process 1596 executed an ARITHMETIC instruction.
+Process 1596,cycles left: 7
+Process 1596 executed an ARITHMETIC instruction.
+Process 1596,cycles left: 6
+Process 1596 executed an LOGIC instruction.
+Process 1596,cycles left: 5
+Process 1596 executed an LOAD instruction.
+Process 1596,cycles left: 4
 
-Context Switch to Process: 2493
-Process 2493 executed an LOGIC instruction.
-Process 2493,cycles left: 7
-Process 2493 executed an ARITHMETIC instruction.
-Process 2493,cycles left: 6
-Process 2493 executed an ST instruction.
-Process 2493,cycles left: 5
-Process 2493 executed an LOGIC instruction.
-Process 2493,cycles left: 4
-Process 2493 executed an LOGIC instruction.
-Process 2493,cycles left: 3
+Context Switch to Process: 155a
+Process 155a executed an LOGIC instruction.
+Process 155a,cycles left: 8
+Process 155a executed an ARITHMETIC instruction.
+Process 155a,cycles left: 7
+Process 155a executed an LOGIC instruction.
+Process 155a,cycles left: 6
+Process 155a executed an LOAD instruction.
+Process 155a,cycles left: 5
+Process 155a executed an ST instruction.
+Process 155a,cycles left: 4
 
-Context Switch to Process: 3140
-Process 3140 executed an ST instruction.
-Process 3140,cycles left: 7
-Process 3140 executed an LOGIC instruction.
-Process 3140,cycles left: 6
-Process 3140 executed an ST instruction.
-Process 3140,cycles left: 5
-Process 3140 executed an ARITHMETIC instruction.
-Process 3140,cycles left: 4
-Process 3140 executed an LOAD instruction.
-Process 3140,cycles left: 3
+Context Switch to Process: 1596
+Process 1596 executed an LOGIC instruction.
+Process 1596,cycles left: 8
+Process 1596 executed an LOGIC instruction.
+Process 1596,cycles left: 7
+Process 1596 executed an LOAD instruction.
+Process 1596,cycles left: 6
+Process 1596 executed an LOGIC instruction.
+Process 1596,cycles left: 5
+Process 1596 executed an ARITHMETIC instruction.
+Process 1596,cycles left: 4
 
-Context Switch to Process: 4909
-Process 4909 executed an ST instruction.
-Process 4909,cycles left: 1
-Process 4909 executed an LOAD instruction.
-Process 4909,cycles left: 0
-Process 4909 terminated
+Context Switch to Process: 24e8
+Process 24e8 executed an ARITHMETIC instruction.
+Process 24e8,cycles left: 1
+Process 24e8 executed an ARITHMETIC instruction.
+Process 24e8,cycles left: 0
+Process 24e8 terminated
 
-Context Switch to Process: 1554
-Process 1554 executed an ARITHMETIC instruction.
-Process 1554,cycles left: 1
-Process 1554 executed an LOGIC instruction.
-Process 1554,cycles left: 0
-Process 1554 terminated
+Context Switch to Process: 1a77
+Process 1a77 executed an LOGIC instruction.
+Process 1a77,cycles left: 2
+Process 1a77 executed an LOAD instruction.
+Process 1a77,cycles left: 1
+Process 1a77 executed an ST instruction.
+Process 1a77,cycles left: 0
+Process 1a77 terminated
 
-Context Switch to Process: 8177
-Process 8177 executed an LOAD instruction.
-Process 8177,cycles left: 1
-Process 8177 executed an LOGIC instruction.
-Process 8177,cycles left: 0
-Process 8177 terminated
+Context Switch to Process: 155a
+Process 155a executed an ARITHMETIC instruction.
+Process 155a,cycles left: 3
+Process 155a executed an LOGIC instruction.
+Process 155a,cycles left: 2
+Process 155a executed an LOAD instruction.
+Process 155a,cycles left: 1
+Process 155a executed an ARITHMETIC instruction.
+Process 155a,cycles left: 0
+Process 155a terminated
 
-Context Switch to Process: 4909
-Process 4909 executed an LOAD instruction.
-Process 4909,cycles left: 1
-Process 4909 executed an ARITHMETIC instruction.
-Process 4909,cycles left: 0
-Process 4909 terminated
+Context Switch to Process: 1596
+Process 1596 executed an LOAD instruction.
+Process 1596,cycles left: 3
+Process 1596 executed an LOGIC instruction.
+Process 1596,cycles left: 2
+Process 1596 executed an LOAD instruction.
+Process 1596,cycles left: 1
+Process 1596 executed an LOAD instruction.
+Process 1596,cycles left: 0
+Process 1596 terminated
 
-Context Switch to Process: 1554
-Process 1554 executed an ARITHMETIC instruction.
-Process 1554,cycles left: 1
-Process 1554 executed an LOAD instruction.
-Process 1554,cycles left: 0
-Process 1554 terminated
+Context Switch to Process: 155a
+Process 155a executed an LOGIC instruction.
+Process 155a,cycles left: 3
+Process 155a executed an LOAD instruction.
+Process 155a,cycles left: 2
+Process 155a executed an LOAD instruction.
+Process 155a,cycles left: 1
+Process 155a executed an LOAD instruction.
+Process 155a,cycles left: 0
+Process 155a terminated
 
-Context Switch to Process: 2493
-Process 2493 executed an LOAD instruction.
-Process 2493,cycles left: 2
-Process 2493 executed an ST instruction.
-Process 2493,cycles left: 1
-Process 2493 executed an ST instruction.
-Process 2493,cycles left: 0
-Process 2493 terminated
-
-Context Switch to Process: 3140
-Process 3140 executed an LOAD instruction.
-Process 3140,cycles left: 2
-Process 3140 executed an LOAD instruction.
-Process 3140,cycles left: 1
-Process 3140 executed an ST instruction.
-Process 3140,cycles left: 0
-Process 3140 terminated
-
-Context Switch to Process: 2677
-Process 2677 executed an LOAD instruction.
-Process 2677,cycles left: 2
-Process 2677 executed an LOAD instruction.
-Process 2677,cycles left: 1
-Process 2677 executed an LOGIC instruction.
-Process 2677,cycles left: 0
-Process 2677 terminated
-
-Context Switch to Process: 2493
-Process 2493 executed an LOAD instruction.
-Process 2493,cycles left: 2
-Process 2493 executed an ST instruction.
-Process 2493,cycles left: 1
-Process 2493 executed an LOAD instruction.
-Process 2493,cycles left: 0
-Process 2493 terminated
-
-Context Switch to Process: 3140
-Process 3140 executed an LOAD instruction.
-Process 3140,cycles left: 2
-Process 3140 executed an LOGIC instruction.
-Process 3140,cycles left: 1
-Process 3140 executed an LOAD instruction.
-Process 3140,cycles left: 0
-Process 3140 terminated
-Execution compete, total cycles: 125
+Context Switch to Process: 1596
+Process 1596 executed an LOAD instruction.
+Process 1596,cycles left: 3
+Process 1596 executed an LOGIC instruction.
+Process 1596,cycles left: 2
+Process 1596 executed an LOAD instruction.
+Process 1596,cycles left: 1
+Process 1596 executed an LOGIC instruction.
+Process 1596,cycles left: 0
+Process 1596 terminated
+Execution compete, total cycles: 72
