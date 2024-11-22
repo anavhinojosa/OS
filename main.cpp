@@ -1,118 +1,68 @@
 #include <iostream>
-#include <iomanip>
-#include "userInputFunctions.h"
-#include "booting.h"
-#include "auth_page.h"
-#include "processManager.h"
-//#include "consoleCommands.h"
-#include "CPUinstructions.h"
-#include "processManager2.h"
-#include "translation.h"
+#include "ProcessManager.h"
+#include "CPUInstructions.h"
+#include "Translation.h"
+#include "Booting.h"
 
 using namespace std;
 
-int main()
-{
-    srand(time(0));
-    std::cout << std::unitbuf;
+// Define global variables
+list<Process> listProcesses;            // List of processes for scheduling
+queue<Process> readyQueue;              // Ready queue for processes
+queue<Process> waitingQueue;            // Waiting queue for processes
+Process processArray[numberProcesses];       // Array of processes
+
+int arraySorted[numberProcesses];            // Array of sorted cycles
+int cyclesArray[numberProcesses] = {0};      // Array to store process cycles
+int tlbHits = 0;
+int tlbMisses = 0;
+int pageFaults = 0;
+int instructionsExecuted = 0;
+
+int main() {
+    srand(time(0)); // Seed random
+
+    // Boot sequence
     bootSystem();
+
+    //page table
     initializePageTable();
-    printPageTable();
-    initializeQueues();
 
+    //initialize Queues
+    queue<Process> terminatedProcesses; //queue for terminated processes
+    initializeProcesses(readyQueue);
 
-    CPU cpu;
-    cpu.schedulePolicy = 0; //fifo
-    cpu.executeProcess();
+    //display Ready Queue
+    displayProcesses(readyQueue, "Ready Queue");
 
-    delay(6);
-    cout << "\n\n\nChanging Policy to Shortest Job First..." << endl;
-    delay(6);
-    cout << "\nCreating 20 Processes..." << endl;
-    cpu.schedulePolicy = 1;//sjf
+    //Scheduling
+    CPU scheduler;
 
-    fillUpLinkedList(); // will give me a doubly with 20 processes, and an array with sorted cycle order
-    cpu.executeProcess();
+    // First Come, First Served Scheduling
+    scheduler.schedulePolicy = 0;
+    scheduler.executeProcess(readyQueue, terminatedProcesses);
 
-    delay(6);
-    cout << "\n\nChanging Policy to RR..." << endl;
-    initializeQueues();
-    delay(6);
-    cout << "\nCreating 20 Processes..." << endl;
-    cpu.schedulePolicy = 2;//rr
-    cpu.executeProcess();
+    initializeProcesses(readyQueue);
 
+    // Shortest Job First Scheduling
+    cout << "[Debug] Starting SJF scheduling." << std::endl;
+    scheduler.schedulePolicy = 1;
+    scheduler.executeProcess(readyQueue, terminatedProcesses);
+    cout << "[Debug] SJF scheduling completed." << std::endl;
+
+    initializeProcesses(readyQueue);
+    cout << "[Debug] Ready queue reinitialized for RR." << std::endl;
+
+    // Round Robin Scheduling
+    cout << "[Debug] Starting Round Robin scheduling." << std::endl;
+    scheduler.schedulePolicy = 2;
+    scheduler.timeQuantum = 4;
+    scheduler.executeProcess(readyQueue, terminatedProcesses);
+    cout << "[Debug] Round Robin scheduling completed." << std::endl;
+
+    // Print Final Summary
+    scheduler.printSummary(terminatedProcesses);
+    cout << "[Debug] Program execution completed successfully." << std::endl;
+
+    return 0;
 }
-
-/*
-    * int choice;
-
-   do {
-       cout << "\nOS Simulator" << endl;
-       cout << "1. Process Management" << endl;
-       cout << "2. Next (authentication)" << endl;
-       cout << "3. Exit" << endl;
-       cout << "Enter your choice: ";
-       cin >> choice;
-
-       switch (choice) {
-           case 1: {
-               int processChoice;
-               do {
-                   cout << "\nProcess Menu" << endl;
-                   cout << "1. Start Process" << endl;
-                   cout << "2. List Processes" << endl;
-                   cout << "3. Terminate Process" << endl;
-                   cout << "4. Back to Main Menu" << endl;
-                   cout << "Enter your choice: ";
-                   cin >> processChoice;
-
-                   switch (processChoice) {
-                       case 1:
-                           startProcess();
-                           break;
-                       case 2:
-                           listProcesses();
-                           break;
-                       case 3: {
-                           int pid;
-                           cout << "Enter PID to terminate: ";
-                           cin >> pid;
-                           terminateProcess(pid);
-                           break;
-                       }
-                       case 4:
-                           cout << "Returning to Main Menu" << endl;
-                           break;
-                       default:
-                           cout << "Invalid choice, please try again." << endl;
-                   }
-               } while (processChoice != 4);
-               break;
-           }
-           case 2: {
-               if (authenticate()) {
-                   cout << "Authentication successful!" << endl;
-                   cout << "Hello! Welcome";
-                   break;
-               } else {
-                   cout << "Failed. Try again." << endl;
-               }
-               break;
-           }
-           case 3:
-               cout << "Exiting OS Simulator" << endl;
-               break;
-
-           default:
-               cout << "Invalid choice, please try again." << endl;
-       }
-   } while (choice != 3);
-    */
-
-// Process* processesArrayPtr;
-
-// bootSystem();
-// startProcess();
-
-// return 0;
