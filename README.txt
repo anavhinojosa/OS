@@ -5,6 +5,11 @@ run with:
 
 g++ -std=c++11 main.cpp -o exe
 
+you can also run with:
+clang++ main.cpp -o main
+//do this because it is a large output
+./main > output.txt
+
 ***************     VERY IMPORTANT     ***************
 
 Ana Hinojosa and Fernando Casas
