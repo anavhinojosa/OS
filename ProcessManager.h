@@ -27,7 +27,7 @@ public:
     }
 };
 
-const int numberProcesses = 50;
+const int numberProcesses = 20;
 
 //extern declarations
 extern list<Process> listProcesses;
