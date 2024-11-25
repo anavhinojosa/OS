@@ -29,3 +29,6 @@ code .
 
 clang++ main.cpp -o main
 ./main > output.txt
+
+
+hello world
