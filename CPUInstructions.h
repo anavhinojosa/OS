@@ -8,6 +8,7 @@
 #include <algorithm>
 #include "Translation.h"
 #include "Delays.h"
+#include "MMU.h"
 
 using namespace std;
 
@@ -28,6 +29,7 @@ public:
     Process currentProcess;
     int schedulePolicy; // 0 - FCFS, 1 - SJF, 2 - Round Robin
     int timeQuantum;    // time quantum for RR
+    MemoryManagementUnit *MMU = new MemoryManagementUnit();
 
     void executeProcess(queue<Process> &readyQueue, queue<Process> &terminatedProcesses)
     {
@@ -55,7 +57,7 @@ public:
         }
         case 2:
         {
-            RR(readyQueue, terminatedProcesses);
+            RR(readyQueue, terminatedProcesses); // Round robin algorithm
             break;
         }
         default:
@@ -73,6 +75,7 @@ public:
         // continue until the ready queue is empty
         while (!readyQueue.empty())
         {
+            instructionsExecuted++;
             // select the first process
             currentProcess = readyQueue.front();
             readyQueue.pop();         // remove the process from the ready queue
@@ -82,7 +85,10 @@ public:
             // continue until there are no more cycles
             while (currentProcess.numCycles > 0)
             {
+                instructionsExecuted++;
                 executeCycle(currentProcess);
+                int randVirtualPage = 1 + rand() % 10;
+                MMU->accessPage(randVirtualPage);
             }
             // since there are no more cycles, then update the state
             currentProcess.state = 5; // terminated
@@ -105,11 +111,15 @@ public:
              { return a.numCycles < b.numCycles; });
         for (const Process &p : processVector)
         {
+            instructionsExecuted++;
             currentProcess = p;
             cout << "\n[Context Switch: PID " << currentProcess.processId << "]" << endl;
             while (currentProcess.numCycles > 0)
             {
+                instructionsExecuted++;
                 executeCycle(currentProcess);
+                int randVirtualPage = 1 + rand() % 10;
+                MMU->accessPage(randVirtualPage);
             }
             currentProcess.state = 5; // terminated
             cout << "Process " << currentProcess.processId << " terminated." << endl;
@@ -122,6 +132,7 @@ public:
     {
         while (!readyQueue.empty())
         {
+            instructionsExecuted++;
             Process currentProcess = readyQueue.front();
             readyQueue.pop();
             cout << "[Context Switch: PID " << currentProcess.processId << "]" << endl;
@@ -129,6 +140,8 @@ public:
             for (int i = 0; i < cyclesToExecute; i++)
             {
                 executeCycle(currentProcess);
+                int randVirtualPage = 1 + rand() % 10;
+                MMU->accessPage(randVirtualPage);
             }
             if (currentProcess.numCycles > 0)
             {
@@ -138,7 +151,7 @@ public:
             {
                 currentProcess.state = 5; // terminated
                 terminatedProcesses.push(currentProcess);
-                cout << "Process " << currentProcess.processId << " terminated." << endl;
+                cout << "\nProcess " << currentProcess.processId << " terminated." << endl;
             }
         }
     }
@@ -150,6 +163,7 @@ public:
         int processCount = 0;
         while (!terminatedProcesses.empty())
         {
+            instructionsExecuted++;
             Process p = terminatedProcesses.front();
             terminatedProcesses.pop();
             cout << ++processCount << ". PID " << p.processId << endl;
@@ -168,13 +182,13 @@ public:
 private:
     void executeCycle(Process &process)
     {
+        delay(1);
         if (process.numCycles > 0)
         {
-            cout << "[Executing Instructions for PID " << process.processId << "]" << endl;
+            // cout << "[Executing Instructions for PID " << process.processId << "]" << endl;
             process.numCycles--; // decrement the cycles
-            cout << "[Cycle Update] PID " << process.processId
-                 << ", Cycles Left: " << process.numCycles
-                 << ", State: Running" << endl;
+                                 // cout << "[Cycle Update] PID " << process.processId
+            cout << "\t\tCycles Left: " << process.numCycles << endl;
         }
         else
         {
@@ -192,6 +206,7 @@ private:
         cout << "[Executing Instructions for PID " << process.processId << "]" << endl;
         while (executed < maxInstructions)
         {
+            delay(1);
             int instructionType = rand() % 4;
             instructionsExecuted++; // increment global instruction counter
             switch (instructionType)

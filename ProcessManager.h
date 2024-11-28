@@ -6,20 +6,27 @@
 #include <queue>
 #include <list>
 #include <algorithm>
+#include "SystemMemory.h" // to declare the page table
+
+class PageTable;
 
 using namespace std;
-class Process {
+class Process
+{
 public:
     int processId;
-    int state;// 0-New, 2-Waiting, 3-Ready, 4-Running, 5-Terminated
-    int numCycles;//# of cycles left (decimal only, 1-10)
+    int state;     // 0-New, 2-Waiting, 3-Ready, 4-Running, 5-Terminated
+    int numCycles; // # of cycles left (decimal only, 1-10)
     int waitingTime;
     int cpuBurst;
     int ioBurst;
+    int pagesNeeded;
+    PageTable *PT = new PageTable(); // tiene de los dos, pero no se como declarar ubicacion
 
-    Process() {
+    Process()
+    {
         processId = 0;
-        state = 0;//new state
+        state = 0; // new state
         waitingTime = 0;
         cpuBurst = 0;
         ioBurst = 0;
@@ -27,32 +34,36 @@ public:
     }
 };
 
-const int numberProcesses = 50;
+const int numberProcesses = 10;
 
-//extern declarations
+// extern declarations
 extern list<Process> listProcesses;
 extern queue<Process> readyQueue;
 extern queue<Process> waitingQueue;
 extern Process processArray[numberProcesses];
 extern int arraySorted[numberProcesses];
 
-void initializeProcesses(queue<Process> &readyQueue) {
+void initializeProcesses(queue<Process> &readyQueue)
+{
     listProcesses.clear();
-    while (!readyQueue.empty()) {
+    while (!readyQueue.empty())
+    {
         readyQueue.pop();
     }
 
     int initializedCount = 0;
 
-    for (int i = 0; i < numberProcesses; i++) {
+    for (int i = 0; i < numberProcesses; i++)
+    {
         Process process;
         process.processId = 10000 + (rand() % 90000);
         process.numCycles = 1 + (rand() % 10);
         process.cpuBurst = 2 + (rand() % 5);
         process.ioBurst = 1 + (rand() % 5);
-        process.state = 1;//ready state
-        readyQueue.push(process);//add it to the ready queue
-        listProcesses.push_back(process);//add it to the list
+        process.pagesNeeded = 10 + (rand() % 20);
+        process.state = 1;                // ready state
+        readyQueue.push(process);         // add it to the ready queue
+        listProcesses.push_back(process); // add it to the list
 
         cout << "[OK] Process Created: PID " << process.processId << endl;
         cout << "CPU Burst Time: " << process.cpuBurst << "ms" << endl;
@@ -61,14 +72,15 @@ void initializeProcesses(queue<Process> &readyQueue) {
         initializedCount++;
     }
 
-    cout << "\n" << initializedCount << " processes were initialized." << endl;
+    cout << "\n"
+         << initializedCount << " processes were initialized." << endl;
 }
 
-//display processes in a queue
+// display processes in a queue
 void displayProcesses(queue<Process> &inputQueue, const string &queueName)
 {
     cout << "[" << queueName << "]: ";
-    queue<Process> tempQueue = inputQueue;//temporary queue to iterate without modifying
+    queue<Process> tempQueue = inputQueue; // temporary queue to iterate without modifying
     while (!tempQueue.empty())
     {
         Process p = tempQueue.front();
@@ -78,7 +90,8 @@ void displayProcesses(queue<Process> &inputQueue, const string &queueName)
     cout << endl;
 }
 
-Process createProcess() {
+Process createProcess()
+{
     Process newProcess;
     newProcess.processId = 10000 + (rand() % 90000);
     newProcess.state = 0;
@@ -88,22 +101,26 @@ Process createProcess() {
     return newProcess;
 }
 
-
-//initialize and sort processes
-void fillUpArray() {
-    for (int i = 0; i < numberProcesses; i++) {
+// initialize and sort processes
+void fillUpArray()
+{
+    for (int i = 0; i < numberProcesses; i++)
+    {
         Process tempProcess = createProcess();
-        processArray[i] = tempProcess;//process to array
-        arraySorted[i] = tempProcess.numCycles;//numCycles for sorting
+        processArray[i] = tempProcess;          // process to array
+        arraySorted[i] = tempProcess.numCycles; // numCycles for sorting
     }
 
-    //sort arraySorted for short
+    // sort arraySorted for short
     sort(arraySorted, arraySorted + numberProcesses);
 
-    //push processes to the waiting queue
-    for (int i = 0; i < numberProcesses; i++) {
-        for (int j = 0; j < numberProcesses; j++) {
-            if (arraySorted[i] == processArray[j].numCycles) {
+    // push processes to the waiting queue
+    for (int i = 0; i < numberProcesses; i++)
+    {
+        for (int j = 0; j < numberProcesses; j++)
+        {
+            if (arraySorted[i] == processArray[j].numCycles)
+            {
                 waitingQueue.push(processArray[j]);
                 break;
             }
@@ -111,9 +128,7 @@ void fillUpArray() {
     }
 }
 
-
-
-//from the waiting queue to the ready queue
+// from the waiting queue to the ready queue
 void initializeReadyQueue()
 {
     while (!readyQueue.empty())
@@ -125,19 +140,21 @@ void initializeReadyQueue()
     {
         Process tempProcess = waitingQueue.front();
         waitingQueue.pop();
-        tempProcess.state = 3;//Ready
+        tempProcess.state = 3; // Ready
         readyQueue.push(tempProcess);
     }
 }
 
-//queue
-void initializeQueues() {
-    fillUpArray();//Fill waiting queue with sorted processes
-    initializeReadyQueue();//from waiting to ready queue
+// queue
+void initializeQueues()
+{
+    fillUpArray();          // Fill waiting queue with sorted processes
+    initializeReadyQueue(); // from waiting to ready queue
 
     cout << "[Process Creation...]" << endl;
     queue<Process> tempQueue = readyQueue;
-    while (!tempQueue.empty()) {
+    while (!tempQueue.empty())
+    {
         Process tempProcess = tempQueue.front();
         tempQueue.pop();
         cout << "[OK] Process Created: PID " << tempProcess.processId << endl;
@@ -145,7 +162,8 @@ void initializeQueues() {
         cout << "CPU Burst Time: " << tempProcess.cpuBurst << "ms" << endl;
         cout << "IO Burst Time: " << tempProcess.ioBurst << "ms" << endl;
         cout << "Total Cycles: " << tempProcess.numCycles << endl;
-        cout << "Added to Ready Queue.\n" << endl;
+        cout << "Added to Ready Queue.\n"
+             << endl;
     }
 }
 

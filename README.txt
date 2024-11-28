@@ -16,6 +16,8 @@ Ana Hinojosa and Fernando Casas
 # operating_systems
 Operating systems project - 
 
+Fernando: using code formatter Prettier so syntax and comments might look odd
+
 To push to github:
 git add .
 git commit -m "title of the commit"
